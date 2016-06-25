@@ -11,5 +11,6 @@ app.on('ready', () => {
     height: 600,
     width: 800
   });
+  mainWindow.maximize();
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 });
