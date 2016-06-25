@@ -4,7 +4,8 @@
   "description": "A custom browser with Vi-like keybindings, built on top of Electron.",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
