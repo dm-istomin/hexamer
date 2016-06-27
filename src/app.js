@@ -22,3 +22,5 @@ navbar.addEventListener('keydown', (e) => {
   }
   if (e.keyCode === 27) { e.target.blur(); mainView.focus(); }
 });
+
+onload = () => { mainView.focus(); }

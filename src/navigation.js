@@ -19,7 +19,6 @@ function inputFocused() {
 
 
 document.addEventListener('keydown', (e) => {
-  console.log(e.key);
   if (e.keyCode === 79) {
     if (!inputFocused()) {
       browser.toggleNav();
@@ -37,4 +36,4 @@ document.addEventListener('keydown', (e) => {
   if (e.keyCode === 75 && !inputFocused()) {
     window.scrollBy(0, -50);
   }
-})
+});
