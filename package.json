@@ -8,6 +8,9 @@
     "start": "./node_modules/.bin/electron .",
     "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js"
   },
+  "babel": {
+    "presets": ["react"]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dm-istomin/hexamer.git"
