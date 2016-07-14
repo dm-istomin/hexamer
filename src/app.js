@@ -1,26 +1,32 @@
-const electron = require('electron');
-const {ipcRenderer} = electron;
+// TODO: remove this horrible hack, rewrite this to take advantage of
+//       React instead of completely ignoring it.
 
-const navbar = document.getElementById('navbar');
-const mainView = document.getElementById('content-view');
+setTimeout(() => {
+  const electron = require('electron');
+  const {ipcRenderer} = electron;
 
-// Forward all messages from guest window to host.
-mainView.addEventListener('console-message', (e) => {
-  console.log(`webview console: ${e.message}`)
-});
+  const navbar = document.getElementById('navbar');
+  const mainView = document.getElementById('content-view');
+
+  // Forward all messages from guest window to host.
+  mainView.addEventListener('console-message', (e) => {
+    console.log(`webview console: ${e.message}`)
+  });
 
 
-ipcRenderer.on('nav/toggleURLFocus', (event, arg) => {
-  navbar.focus();
-});
+  ipcRenderer.on('nav/toggleURLFocus', (event, arg) => {
+    navbar.focus();
+  });
 
-navbar.addEventListener('keydown', (e) => {
-  if (e.keyCode == 13) {
-    mainView.loadURL(e.target.value);
-    e.target.blur();
-    mainView.focus();
-  }
-  if (e.keyCode === 27) { e.target.blur(); mainView.focus(); }
-});
+  navbar.addEventListener('keydown', (e) => {
+    if (e.keyCode == 13) {
+      mainView.loadURL(e.target.value);
+      e.target.blur();
+      mainView.focus();
+    }
+    if (e.keyCode === 27) { e.target.blur(); mainView.focus(); }
+  });
 
-onload = () => { mainView.focus(); }
+   setTimeout(() => { mainView.focus(); }, 50);
+}, 50);
+

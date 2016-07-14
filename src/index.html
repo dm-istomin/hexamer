@@ -1,11 +1,24 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Electron App</title>
+  <title>Hexamer</title>
 </head>
 <body>
-  <div id="react-root"></div>
-  <script src="../build/bundle.js"></script>
+  <div id="root"></div>
+  <script type="text/javascript" charset="utf-8">
+    let bundlePath = '../build/bundle.js';
+
+    if (typeof process !== undefined && process.env.HEXAMER_ENV === 'dev') {
+      bundlePath = 'http://localhost:8080/build/bundle.js';
+    }
+
+    let bundleScriptEl = document.createElement('script');
+    bundleScriptEl.src = bundlePath;
+    document
+      .currentScript
+      .parentNode
+      .insertBefore(bundleScriptEl, document.currentScript);
+  </script>
+  <script src="app.js"></script>
 </body>
 </html>

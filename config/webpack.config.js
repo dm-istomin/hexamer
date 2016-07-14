@@ -6,7 +6,8 @@ module.exports = {
   entry: './entry.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '../build')
+    path: path.resolve(__dirname, '../build'),
+    publicPath: 'http://localhost:8080/build'
   },
   resolveLoader: {
     root: path.resolve(__dirname, '../node_modules')
