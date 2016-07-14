@@ -1,21 +1,24 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>Hexamer</title>
-
-  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-  <main id="app">
-    <section id="navigation">
-      <input id="navbar" type="text" placeholder="URL"></input>
-    </section>
-    <webview id="content-view"
-             preload="./navigation.js"
-             src="new-tab.html">
-    </webview>
-  </main>
+  <div id="root"></div>
+  <script type="text/javascript" charset="utf-8">
+    let bundlePath = '../build/bundle.js';
+
+    if (typeof process !== undefined && process.env.HEXAMER_ENV === 'dev') {
+      bundlePath = 'http://localhost:8080/build/bundle.js';
+    }
+
+    let bundleScriptEl = document.createElement('script');
+    bundleScriptEl.src = bundlePath;
+    document
+      .currentScript
+      .parentNode
+      .insertBefore(bundleScriptEl, document.currentScript);
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
