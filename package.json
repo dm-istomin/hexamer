@@ -28,9 +28,13 @@
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-preset-react": "^6.11.1",
+    "css-loader": "^0.23.1",
     "electron-prebuilt": "^1.2.5",
+    "node-sass": "^3.8.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
