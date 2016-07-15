@@ -1,10 +1,10 @@
 require('./main.scss');
 
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const App = React.createClass({
-  render: () => {
+class App extends React.Component {
+  render() {
     return (
       <main id="app">
         <section id="navigation">
@@ -15,6 +15,6 @@ const App = React.createClass({
       </main>
     );
   }
-});
+}
 
 ReactDOM.render(<App/>, document.getElementById('root'));
