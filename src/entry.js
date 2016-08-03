@@ -10,7 +10,7 @@ class App extends React.Component {
         <section id="navigation">
           <input id="navbar" type="text" placeholder="URL"></input>
         </section>
-        <webview id="content-view" preload="./navigation.js" src="new-tab.html">
+        <webview id="content-view" preload="src/navigation.js" src="src/new-tab.html">
         </webview>
       </main>
     );
