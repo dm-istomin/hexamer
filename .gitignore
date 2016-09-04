@@ -38,3 +38,6 @@ jspm_packages
 
 # File for packaged app
 build/bundle.js
+
+# Mocha-webpack output directory
+.tmp
