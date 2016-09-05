@@ -1,20 +1,20 @@
 require('./main.scss');
 
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const App = React.createClass({
-  render: () => {
+import Navbar from './components/Navbar';
+import Content from './components/Content';
+
+class App extends React.Component {
+  render() {
     return (
       <main id="app">
-        <section id="navigation">
-          <input id="navbar" type="text" placeholder="URL"></input>
-        </section>
-        <webview id="content-view" preload="./navigation.js" src="new-tab.html">
-        </webview>
+        <Navbar />
+        <Content />
       </main>
     );
   }
-});
+}
 
 ReactDOM.render(<App/>, document.getElementById('root'));

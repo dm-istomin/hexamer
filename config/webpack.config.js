@@ -14,8 +14,18 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-      {test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader'}
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        },
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style-loader!css-loader!sass-loader'
+      }
     ]
   }
 }
