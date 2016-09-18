@@ -1,32 +1,15 @@
-// TODO: remove this horrible hack, rewrite this to take advantage of
-//       React instead of completely ignoring it.
-/*
-setTimeout(() => {
-  const electron = require('electron');
-  const {ipcRenderer} = electron;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './components/App';
+import reducer from './reducers/main';
 
-  const navbar = document.getElementById('navbar');
-  const mainView = document.getElementById('content-view');
+const store = createStore(reducer);
 
-  // Forward all messages from guest window to host.
-  mainView.addEventListener('console-message', (e) => {
-    console.log(`webview console: ${e.message}`)
-  });
-
-
-  ipcRenderer.on('nav/toggleURLFocus', (event, arg) => {
-    navbar.focus();
-  });
-
-  navbar.addEventListener('keydown', (e) => {
-    if (e.keyCode == 13) {
-      mainView.loadURL(e.target.value);
-      e.target.blur();
-      mainView.focus();
-    }
-    if (e.keyCode === 27) { e.target.blur(); mainView.focus(); }
-  });
-
-   setTimeout(() => { mainView.focus(); }, 50);
-}, 50);
-*/
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
