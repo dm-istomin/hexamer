@@ -13,7 +13,7 @@ app.on('ready', () => {
     width: 800
   });
   mainWindow.maximize();
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/assets/static/index.html`);
 });
 
 ipcMain.on('nav/toggleURLFocus', (event, arg) => {

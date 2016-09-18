@@ -5,7 +5,7 @@ class Content extends React.Component {
     return (
       <webview id="content-view"
                preload="src/navigation.js"
-               src="src/new-tab.html">
+               src="../assets/static/new-tab.html">
       </webview>
     );
   }

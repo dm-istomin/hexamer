@@ -1,6 +1,6 @@
 // TODO: remove this horrible hack, rewrite this to take advantage of
 //       React instead of completely ignoring it.
-
+/*
 setTimeout(() => {
   const electron = require('electron');
   const {ipcRenderer} = electron;
@@ -29,4 +29,4 @@ setTimeout(() => {
 
    setTimeout(() => { mainView.focus(); }, 50);
 }, 50);
-
+*/
