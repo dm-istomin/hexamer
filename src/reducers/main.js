@@ -1,11 +1,12 @@
-import { combineReducers } from 'redux';
+import { SET_URL } from '../actions/actions'
 
-const initialState = {
-  url: null
-};
-
-function hexamerApp(state = initialState, action) {
-  return state; // For now, don't do anything.
+function navigation(state = {}, action) {
+  switch(action.type) {
+    case SET_URL:
+      return action.url;
+    default:
+      return state;
+  }
 }
 
-export default hexamerApp;
+export default navigation;
