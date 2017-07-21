@@ -1,46 +1,50 @@
 {
   "name": "hexamer",
-  "version": "0.1.0",
-  "description": "A custom browser with Vi-like keybindings, built on top of Electron.",
-  "main": "main.js",
-  "scripts": {
-    "test": "mocha-webpack --webpack-config config/webpack.test.config.js spec/specs.js",
-    "start": "HEXAMER_ENV=dev ./node_modules/.bin/electron .",
-    "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js",
-    "watch": "./node_modules/.bin/webpack-dev-server --hot --inline --config ./config/webpack.config.js"
-  },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015"
-    ]
-  },
+  "version": "0.0.1",
+  "description": "Custom browser with Vi-like keybindings",
+  "author": "Dmitriy Istomin",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dm-istomin/hexamer.git"
+    "url": "git@github.com:dm-istomin/hexamer.git"
   },
-  "author": "Dmitriy Istomin",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dm-istomin/hexamer/issues"
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js",
+    "prod": "webpack --progress --config webpack.build.config.js && electron --noDevServer .",
+    "build": "webpack --progress --config webpack.build.config.js",
+    "package": "webpack --config webpack.build.config.js",
+    "postpackage": "electron-packager ./ --out=./builds",
+    "scaffold": "node ./scaffold/scaffold.js",
+    "postinstall": "cd ./scaffold && npm install"
   },
-  "homepage": "https://github.com/dm-istomin/hexamer#readme",
   "devDependencies": {
-    "babel-core": "^6.10.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "chai": "^3.5.0",
-    "css-loader": "^0.23.1",
-    "electron-prebuilt": "^1.2.5",
-    "mocha": "^3.0.2",
-    "mocha-webpack": "^0.6.0",
-    "node-sass": "^3.8.0",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "sass-loader": "^4.0.0",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-plugin-transform-class-properties": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-react": "^6.23.0",
+    "babili-webpack-plugin": "^0.0.11",
+    "connected-react-router": "^4.0.0-beta.4",
+    "css-loader": "^0.26.2",
+    "deep-equal": "^1.0.1",
+    "electron": "^1.6.1",
+    "electron-json-config": "^1.4.0",
+    "electron-packager": "^8.5.2",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.10.1",
+    "html-webpack-plugin": "^2.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-redux": "^5.0.3",
+    "react-router-dom": "^4.0.0-beta.7",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.8.2",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   }
 }
