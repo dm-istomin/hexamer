@@ -7,6 +7,7 @@ const Menu = () => {
       <h5 className="nav-group-title">Navigation</h5>
       <MenuRow path="/" label="Home" icon="home" />
       <MenuRow path="/example" label="Example Page" icon="chart-bar" />
+      <MenuRow path="/web" label="Browser Test" icon="network" />
     </nav>
   );
 }

@@ -29,6 +29,7 @@ const AppRouter = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/example" component={components.Example} />
+      <Route path="/web" component={components.Webview} />
     </Switch>
   );
 }
