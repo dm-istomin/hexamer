@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/dm-istomin/hexamer#readme",
   "devDependencies": {
-    "electron": "1.7.9"
+    "electron": "1.7.9",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   }
 }
