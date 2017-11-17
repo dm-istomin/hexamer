@@ -14,7 +14,7 @@ process.env.HEXAMER_ENV = 'prod'
 module.exports = Object.assign(baseConfig, {
   plugins: baseConfig.plugins.concat([
     new webpack.DefinePlugin({
-      'process.env.HEXAMER_ENV': process.env.HEXAMER_ENV
+      'process.env.HEXAMER_ENV': JSON.stringify(process.env.HEXAMER_ENV)
     })
   ]),
   target: 'electron-renderer',

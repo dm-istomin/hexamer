@@ -13,7 +13,7 @@ process.env.HEXAMER_ENV = 'dev'
 
 module.exports = Object.assign(baseConfig, {
   plugins: baseConfig.plugins.concat([
-    new webpack.DefinePlugin({ 'process.env.HEXAMER_ENV': process.env.HEXAMER_ENV })
+    new webpack.DefinePlugin({ 'process.env.HEXAMER_ENV': JSON.stringfy(process.env.HEXAMER_ENV) })
   ]),
   devServer: {
     port: 8001,
