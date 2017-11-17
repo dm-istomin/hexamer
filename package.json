@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "dev": "webpack-dev-server --env dev --hot --host 0.0.0.0 --config config/webpack.dev.config.js",
-    "build": "webpack --config config/webpack.build.config.js"
+    "build": "webpack --progress --env prod --config config/webpack.build.config.js",
+    "prod": "npm run build && HEXAMER_ENV=prod electron --noDevServer ."
   },
   "repository": {
     "type": "git",

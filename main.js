@@ -13,22 +13,34 @@ function createWindow () {
   // Create the browser window
   mainWindow = new BrowserWindow({ width: 1024, height: 768 })
 
-  if (process.env.HEXAMER_ENV === 'dev') {
-    const path = url.format({
-      protocol: 'http',
-      host: 'localhost:8001',
-      pathname: 'index.html',
-      slashes: true
-    })
+  let startURL
 
-    mainWindow.loadURL(path)
+  switch (process.env.HEXAMER_ENV) {
+    case 'dev':
+      startURL = url.format({
+        protocol: 'http',
+        host: 'localhost:8001',
+        pathname: 'index.html',
+        slashes: true
+      })
 
-    // Open the DevTools
-    mainWindow.webContents.openDevTools()
-  } else {
-    console.error(
-      `Error: only HEXAMER_ENV=dev is supported, currently HEAXMER_ENV=${process.env.HEXAMER_ENV}`
-    )
+      mainWindow.loadURL(startURL)
+
+      // Open the DevTools
+      mainWindow.webContents.openDevTools()
+      break;
+    case 'prod':
+      startURL = url.format({
+        protocol: 'file',
+        host: path.join(__dirname, 'dist', 'index.html'),
+        slashes: true
+      })
+
+      mainWindow.loadURL(startURL)
+      break;
+    default:
+      console.error(`Error: Unknown environment ${process.env.HEXAMER_ENV}`)
+
   }
 
   // and load the index.html of the app.
