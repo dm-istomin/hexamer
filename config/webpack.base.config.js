@@ -15,7 +15,6 @@ module.exports = {
   },
   output: {
     path: OUTPUT_DIR,
-    publicPath: './',
     filename: '[name]-bundle.js'
   },
   module: {
