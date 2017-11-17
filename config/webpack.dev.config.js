@@ -2,37 +2,19 @@ const webpack = require('webpack')
 const path = require('path')
 const { spawn } = require('child_process')
 
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-
 // Config directories
-const ROOT_DIR = path.resolve(__dirname)
-const SRC_DIR = path.resolve(__dirname, 'src')
-const OUTPUT_DIR = path.resolve(__dirname, 'dist')
+const ROOT_DIR = path.resolve(__dirname, '..')
+const OUTPUT_DIR = path.resolve(ROOT_DIR, 'dist')
+
+const baseConfig = require('./webpack.base.config.js')
 
 // Set environment to 'dev'
 process.env.HEXAMER_ENV = 'dev'
 
-
-module.exports = {
-  entry: `${SRC_DIR}/index.js`,
-  output: {
-    path: OUTPUT_DIR,
-    filename: 'app-bundle.js'
-  },
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
-    ]
-  },
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: `${SRC_DIR}/index.html`,
-      filename: 'index.html',
-      inject: 'body'
-    }),
+module.exports = Object.assign(baseConfig, {
+  plugins: baseConfig.plugins.concat([
     new webpack.DefinePlugin({ 'process.env.HEXAMER_ENV': process.env.HEXAMER_ENV })
-  ],
+  ]),
   devServer: {
     port: 8001,
     contentBase: OUTPUT_DIR,
@@ -41,7 +23,7 @@ module.exports = {
       chunks: false,
       children: false
     },
-    setup() {
+    before() {
       spawn(
         path.resolve(`${ROOT_DIR}/node_modules/.bin/electron`),
         ['.'],
@@ -51,4 +33,4 @@ module.exports = {
       .on('error', spawnError => console.error(spawnError))
     }
   }
-}
+})

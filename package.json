@@ -4,8 +4,8 @@
   "description": "A custom browser built on top of Chromium with vim-like keybindings.",
   "main": "main.js",
   "scripts": {
-    "dev": "webpack-dev-server --env dev --hot --host 0.0.0.0 --config webpack.dev.config.js",
-    "build": "webpack --config webpack.build.config.js"
+    "dev": "webpack-dev-server --env dev --hot --host 0.0.0.0 --config config/webpack.dev.config.js",
+    "build": "webpack --config config/webpack.build.config.js"
   },
   "repository": {
     "type": "git",
