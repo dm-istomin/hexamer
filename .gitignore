@@ -41,3 +41,6 @@ build/bundle.js
 
 # Mocha-webpack output directory
 .tmp
+
+# Compiled project files
+dist
